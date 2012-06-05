@@ -36,10 +36,6 @@ public class frestudiantes extends javax.swing.JFrame {
         btagregarest = new javax.swing.JMenuItem();
         btactualizarest = new javax.swing.JMenuItem();
         bteliminarest = new javax.swing.JMenuItem();
-        MenuMatricula = new javax.swing.JMenu();
-        MenuNuevo = new javax.swing.JMenuItem();
-        MenuActualizar = new javax.swing.JMenuItem();
-        MenuEliminar = new javax.swing.JMenuItem();
 
         setTitle("Modulo Estudiantes");
 
@@ -90,29 +86,6 @@ public class frestudiantes extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuGestiones);
 
-        MenuMatricula.setText("Matricula");
-        MenuMatricula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuMatriculaActionPerformed(evt);
-            }
-        });
-
-        MenuNuevo.setText("Nuevo");
-        MenuNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuNuevoActionPerformed(evt);
-            }
-        });
-        MenuMatricula.add(MenuNuevo);
-
-        MenuActualizar.setText("Actualiza");
-        MenuMatricula.add(MenuActualizar);
-
-        MenuEliminar.setText("Eliminar");
-        MenuMatricula.add(MenuEliminar);
-
-        jMenuBar1.add(MenuMatricula);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,17 +133,6 @@ private void bteliminarestActionPerformed(java.awt.event.ActionEvent evt) {//GEN
     a.setVisible(true);
 }//GEN-LAST:event_bteliminarestActionPerformed
 
-private void MenuMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMatriculaActionPerformed
-
-}//GEN-LAST:event_MenuMatriculaActionPerformed
-
-private void MenuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuNuevoActionPerformed
-
-    nuevo_matricula a = new nuevo_matricula();
-    a.setLocationRelativeTo(null);
-    a.setVisible(true);
-}//GEN-LAST:event_MenuNuevoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -207,12 +169,8 @@ private void MenuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem MenuActualizar;
     private javax.swing.JMenu MenuArchivo;
-    private javax.swing.JMenuItem MenuEliminar;
     private javax.swing.JMenu MenuGestiones;
-    private javax.swing.JMenu MenuMatricula;
-    private javax.swing.JMenuItem MenuNuevo;
     private javax.swing.JMenuItem btactualizarest;
     private javax.swing.JMenuItem btagregarest;
     private javax.swing.JMenuItem bteliminarest;

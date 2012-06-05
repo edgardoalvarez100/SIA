@@ -20,6 +20,18 @@
       <Cl au="0" df="" nm="asi_creditos" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="asi_horas_teoricas" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="asi_horas_practicas" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="asi_horas_independientes" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="asi_tipo" nu="0">
+        <DT arr="0" ds="VarChar2" en="" id="781" ln="1" sc="null" sg="1" un="0"/>
+      </Cl>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="sia_estudiantes">
@@ -64,12 +76,6 @@
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="not_3_corte" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="not_habilitacion" nu="1">
-        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="not_vacacional" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <SchTrHis/>

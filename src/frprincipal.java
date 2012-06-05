@@ -35,6 +35,11 @@ public class frprincipal extends javax.swing.JFrame {
 
         btasignaturas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-asignaturas.png"))); // NOI18N
         btasignaturas.setText("Asignaturas");
+        btasignaturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btasignaturasActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -145,6 +150,12 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 // TODO add your handling code here:
     System.exit(1);
 }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+private void btasignaturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btasignaturasActionPerformed
+    asignatura f = new asignatura();
+     f.setLocationRelativeTo(null);
+     f.setVisible(true);
+}//GEN-LAST:event_btasignaturasActionPerformed
 
  
     public static void main(String args[]) {
