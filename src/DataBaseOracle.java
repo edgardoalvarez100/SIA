@@ -29,8 +29,8 @@ public class DataBaseOracle {
   int port = 1521;
   String oracleURL = "jdbc:oracle:thin:@" + url + ":" + port + ":" + database;
      
- usuario = "usuario";
- password = "cotraseña";
+ usuario = "SIA";
+ password = "trew2345";
  Connection conexion = DriverManager.getConnection(oracleURL, usuario, password);
       
       

@@ -64,9 +64,19 @@ public class asignatura extends javax.swing.JFrame {
         jMenu2.add(menu_nuevo);
 
         menu_actualizar.setText("Actualizar");
+        menu_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_actualizarActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_actualizar);
 
         menu_eliminar.setText("Eliminar");
+        menu_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_eliminarActionPerformed(evt);
+            }
+        });
         jMenu2.add(menu_eliminar);
 
         jMenuBar1.add(jMenu2);
@@ -97,6 +107,18 @@ private void menu_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     a.setLocationRelativeTo(null);
     a.setVisible(true);
 }//GEN-LAST:event_menu_nuevoActionPerformed
+
+private void menu_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_actualizarActionPerformed
+ actualizar_asignatura a = new actualizar_asignatura();
+    a.setLocationRelativeTo(null);
+    a.setVisible(true);
+}//GEN-LAST:event_menu_actualizarActionPerformed
+
+private void menu_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_eliminarActionPerformed
+eliminar_asignatura a = new eliminar_asignatura();
+    a.setLocationRelativeTo(null);
+    a.setVisible(true);
+}//GEN-LAST:event_menu_eliminarActionPerformed
 
     /**
      * @param args the command line arguments

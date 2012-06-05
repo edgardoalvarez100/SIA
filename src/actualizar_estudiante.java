@@ -238,7 +238,7 @@ private void bt_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN
 }//GEN-LAST:event_bt_actualizarActionPerformed
 
 private void bt_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_buscarActionPerformed
-// Buscar Estudiante por codigo matricula:
+
     try{
         boolean encontrado = false;
         ResultSet con;

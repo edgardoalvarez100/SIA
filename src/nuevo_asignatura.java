@@ -65,7 +65,7 @@ public class nuevo_asignatura extends javax.swing.JFrame {
                 
                horap =Integer.parseInt(hp.getText());
               horat  =Integer.parseInt(ht.getText());
-              horai = horat*horap;
+              horai = horat+horap;
               hi.setText(Integer.toString(horai));
               resultado = (horat+horap+horai)*16/48;
               txt_credito.setText(Integer.toString(resultado));
@@ -143,6 +143,11 @@ public class nuevo_asignatura extends javax.swing.JFrame {
         });
 
         jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         bt_calcular.setText("Calcular");
         bt_calcular.addActionListener(new java.awt.event.ActionListener() {
@@ -269,6 +274,10 @@ calcular_credito();
     
 
 }//GEN-LAST:event_bt_guardarActionPerformed
+
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+this.hide();
+}//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

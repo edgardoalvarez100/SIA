@@ -78,6 +78,14 @@
       <Cl au="0" df="" nm="not_3_corte" nu="1">
         <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="pro_codigo" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_notas_proyecciones" prLkCl="pro_codigo" upAc="3">
+        <PrTb mn="0" nm="sia_proyecciones" oe="1" sch="SIA" zr="0"/>
+        <CdTb mn="1" nm="sia_notas" oe="0" sch="SIA" zr="1"/>
+        <ClPr cdCl="pro_codigo" prCl="pro_codigo"/>
+      </Fk>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="sia_proyecciones">
@@ -87,9 +95,6 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="1" df="" nm="pro_codigo" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
-      <Cl au="0" df="" nm="not_codigo" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="pro_estado" nu="0">
@@ -107,11 +112,6 @@
         <PrTb mn="0" nm="sia_asignaturas" oe="1" sch="SIA" zr="0"/>
         <CdTb mn="1" nm="sia_proyecciones" oe="0" sch="SIA" zr="1"/>
         <ClPr cdCl="asi_codigo" prCl="asi_codigo"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_pro_asi_notas" prLkCl="not_codigo" upAc="3">
-        <PrTb mn="0" nm="sia_notas" oe="1" sch="SIA" zr="0"/>
-        <CdTb mn="1" nm="sia_proyecciones" oe="0" sch="SIA" zr="1"/>
-        <ClPr cdCl="not_codigo" prCl="not_codigo"/>
       </Fk>
       <SchTrHis/>
     </Tbl>
@@ -160,9 +160,9 @@
     <TbGl bkCl="ffccccff" sch="SIA" tbl="sia_notas" x="411" y="259"/>
     <TbGl bkCl="ffccccff" sch="SIA" tbl="sia_proyecciones" x="411" y="48"/>
     <TbGl bkCl="ffccccff" sch="SIA" tbl="sia_usuarios" x="97" y="248"/>
+    <FkGl bkCl="ff000000" nm="SIA.sia_notas.fk_notas_proyecciones"/>
     <FkGl bkCl="ff000000" nm="SIA.sia_proyecciones.fk_mat_asi_estudiantes"/>
     <FkGl bkCl="ff000000" nm="SIA.sia_proyecciones.fk_pro_asi_asignaturas"/>
-    <FkGl bkCl="ff000000" nm="SIA.sia_proyecciones.fk_pro_asi_notas"/>
     <Notes/>
     <Zones/>
   </Dgm>
