@@ -25,14 +25,14 @@ public class anadir_proyeccion extends javax.swing.JFrame {
     }
     public void buscarDatosAsignatura(String SQL)
     {
-                String titulos[]={"Codigo","Asignatura"};
+       String titulos[]={"Codigo","Asignatura"};
 
         int j,total1=0;
         ResultSet con;
         try
         {
 
-            con=DataBaseOracle.Query("SELECT COUNT(*) FROM sia_estudiantes e, sia_proyecciones p WHERE e.est_codigo=p.est_codigo and e.est_estado=1 and p.pro_estado=1");
+            con=DataBaseOracle.Query("SELECT COUNT(*) FROM  sia_asignaturas a WHERE a.asi_estado=1");
             if(con.next())
             {
               total1=con.getInt(1);
@@ -45,6 +45,7 @@ public class anadir_proyeccion extends javax.swing.JFrame {
             {
                 data[j][0]=con.getString(1);//codigo
                 data[j][1]=con.getString(2);//Nombre
+                
 
                 j++;
             }//end while
@@ -72,7 +73,7 @@ public class anadir_proyeccion extends javax.swing.JFrame {
             {
               total1=con.getInt(1);
             }
-            Object [][] data = new Object[total1][4];
+            Object [][] data = new Object[total1+1][4];
 
             con=DataBaseOracle.Query(SQL);
             j=0;
@@ -415,9 +416,9 @@ private void txt_buscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
        
         String sql;
         if(!txt_buscar.getText().equals("")){
-            sql="SELECT * FROM sia_asignaturas WHERE asi_nombre LIKE '"+txt_buscar.getText()+"%' AND asi_estado=1";
+            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_nombre LIKE '"+txt_buscar.getText().toUpperCase()+"%' AND asi_estado=1";
         } else
-            sql="SELECT * FROM sia_asignaturas WHERE asi_estado=1";
+            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_estado=1";
         buscarDatosAsignatura(sql);
 }//GEN-LAST:event_txt_buscarKeyPressed
 
@@ -425,6 +426,12 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
   fr_asignatura.setLocationRelativeTo(null);
   fr_asignatura.setSize(400, 301);
   fr_asignatura.setVisible(true);
+  String sql;
+        if(!txt_buscar.getText().equals("")){
+            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_nombre LIKE '"+txt_buscar.getText().toUpperCase()+"%' AND asi_estado=1";
+        } else
+            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_estado=1";
+        buscarDatosAsignatura(sql);
 }//GEN-LAST:event_jButton1ActionPerformed
 
 private void bt_anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_anadirActionPerformed
@@ -433,7 +440,9 @@ private void bt_anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
        if (validar()){
            String sql ="INSERT INTO sia_proyecciones values("+txt_codigo_asignatura.getText()+", INC_PROYECCION_PK.NextVal, 1, (SELECT est_codigo FROM sia_estudiantes WHERE est_cod_matricula="+txt_codigo_estudiante.getText() +" AND est_estado=1))";
         DataBaseOracle.Execute(sql);
-               
+         
+        sql="INSERT INTO sia_notas VALUES(INC_NOTAS_PK.NextVal, NULL, NULL, NULL, (SELECT LAST_NUMBER-1 FROM user_sequences WHERE SEQUENCE_NAME = 'INC_PROYECCION_PK'))";
+        DataBaseOracle.Execute(sql);
         JOptionPane.showMessageDialog(this, "Asignatura Añadida");
         this.hide();
         

@@ -198,9 +198,11 @@ private void bt_buscar_proyeccionActionPerformed(java.awt.event.ActionEvent evt)
         String sql;
         if(!txt_codigo.getText().equals("")){
             sql="SELECT a.asi_codigo, a.asi_nombre, a.asi_creditos, e.est_nombres, e.est_apellidos "+
-                "FROM sia_asignaturas a INNER JOIN sia_proyecciones p ON a.asi_codigo=p.asi_codigo "+
+                "FROM sia_asignaturas a "
+              + "INNER JOIN sia_proyecciones p ON a.asi_codigo=p.asi_codigo "+
                 "INNER JOIN sia_estudiantes e ON p.est_codigo=e.est_codigo "+
-                "WHERE e.est_cod_matricula="+txt_codigo.getText()+" AND a.asi_estado=1 AND p.pro_estado=1 AND e.est_estado=1";
+                "WHERE e.est_cod_matricula="+txt_codigo.getText()+""
+             + " AND a.asi_estado=1 AND p.pro_estado=1 AND e.est_estado=1";
             buscarDatosProyecciones(sql);
         } else
             JOptionPane.showMessageDialog(this, "Escriba el codigo del estudiante");
