@@ -52,6 +52,7 @@ public class anadir_proyeccion extends javax.swing.JFrame {
            // DefaultTableModel ob =new DefaultTableModel();
             DefaultTableModel dtm = new DefaultTableModel(data,titulos);
             tabla.setModel(dtm);
+            con.close();
         }
         catch(SQLException exc)
         {
@@ -88,6 +89,7 @@ public class anadir_proyeccion extends javax.swing.JFrame {
            // DefaultTableModel ob =new DefaultTableModel();
             DefaultTableModel dtm = new DefaultTableModel(data,titulos);
             tabla_estudiantes.setModel(dtm);
+            con.close();
         }
         catch(SQLException exc)
         {
@@ -441,7 +443,7 @@ private void bt_anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
            String sql ="INSERT INTO sia_proyecciones values("+txt_codigo_asignatura.getText()+", INC_PROYECCION_PK.NextVal, 1, (SELECT est_codigo FROM sia_estudiantes WHERE est_cod_matricula="+txt_codigo_estudiante.getText() +" AND est_estado=1))";
         DataBaseOracle.Execute(sql);
          
-        sql="INSERT INTO sia_notas VALUES(INC_NOTAS_PK.NextVal, NULL, NULL, NULL, (SELECT LAST_NUMBER-1 FROM user_sequences WHERE SEQUENCE_NAME = 'INC_PROYECCION_PK'))";
+        sql="INSERT INTO sia_notas VALUES(INC_NOTAS_PK.NextVal, NULL, NULL, NULL, (SELECT LAST_NUMBER-1 FROM user_sequences WHERE SEQUENCE_NAME = 'INC_PROYECCION_PK'), NULL)";
         DataBaseOracle.Execute(sql);
         JOptionPane.showMessageDialog(this, "Asignatura Añadida");
         this.hide();

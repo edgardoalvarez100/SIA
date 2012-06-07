@@ -5,6 +5,7 @@ public class frnotas extends javax.swing.JFrame {
 
    static int[ ] notas = new int[20];
     private int cod_nota;
+    private double nota_definitiva;
     public frnotas() {
         initComponents();
     }
@@ -499,8 +500,9 @@ this.hide();
 private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
 
      try{
-       
-        String sql ="UPDATE sia_notas SET not_1_corte="+txt_1corte.getText()+", not_2_corte="+txt_2corte.getText()+", not_3_corte="+txt_3corte.getText()+
+       nota_definitiva = Integer.parseInt(txt_1corte.getText())*0.3 + Integer.parseInt(txt_2corte.getText())*0.3 + Integer.parseInt(txt_3corte.getText())*0.4;
+         
+        String sql ="UPDATE sia_notas SET not_1_corte="+ Double.parseDouble(txt_1corte.getText())+", not_2_corte="+Double.parseDouble(txt_2corte.getText())+", not_3_corte="+Double.parseDouble(txt_3corte.getText())+ ", not_definitiva="+ nota_definitiva +
                     " WHERE  sia_notas.not_codigo="+cod_nota;
         DataBaseOracle.Execute(sql);
         JOptionPane.showMessageDialog(this, "Notas Guardas");

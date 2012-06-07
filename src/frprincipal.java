@@ -12,7 +12,7 @@ public class frprincipal extends javax.swing.JFrame {
         btestudiantes = new javax.swing.JButton();
         btasignaturas = new javax.swing.JButton();
         bt_academico = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        bt_reportes = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         bt_notas = new javax.swing.JButton();
@@ -48,8 +48,13 @@ public class frprincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes.png"))); // NOI18N
-        jButton1.setText("Reportes");
+        bt_reportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/reportes.png"))); // NOI18N
+        bt_reportes.setText("Reportes");
+        bt_reportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_reportesActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.png"))); // NOI18N
 
@@ -111,7 +116,7 @@ public class frprincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bt_notas, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -123,7 +128,7 @@ public class frprincipal extends javax.swing.JFrame {
                     .addComponent(btestudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btasignaturas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bt_academico, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bt_notas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(137, Short.MAX_VALUE))
         );
@@ -161,6 +166,12 @@ frnotas a= new frnotas ();
 a.setLocationRelativeTo(null);
 a.setVisible(true);
 }//GEN-LAST:event_bt_notasActionPerformed
+
+private void bt_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_reportesActionPerformed
+frreportes a= new frreportes();
+a.setLocationRelativeTo(null);
+a.setVisible(true);
+}//GEN-LAST:event_bt_reportesActionPerformed
 
  
     public static void main(String args[]) {
@@ -200,9 +211,9 @@ a.setVisible(true);
     private javax.swing.JMenu MenuAyuda;
     private javax.swing.JButton bt_academico;
     private javax.swing.JButton bt_notas;
+    private javax.swing.JButton bt_reportes;
     private javax.swing.JButton btasignaturas;
     private javax.swing.JButton btestudiantes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

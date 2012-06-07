@@ -39,6 +39,7 @@ public class proyecciones extends javax.swing.JFrame {
            // DefaultTableModel ob =new DefaultTableModel();
             DefaultTableModel dtm = new DefaultTableModel(data,titulos);
             tabla_proyeccion.setModel(dtm);
+            con.close();
         }
         catch(SQLException exc)
         {

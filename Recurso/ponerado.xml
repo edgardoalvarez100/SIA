@@ -81,6 +81,9 @@
       <Cl au="0" df="" nm="pro_codigo" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="not_definitiva" nu="1">
+        <DT arr="0" ds="Float" en="" id="6" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="3" nm="fk_notas_proyecciones" prLkCl="pro_codigo" upAc="3">
         <PrTb mn="0" nm="sia_proyecciones" oe="1" sch="SIA" zr="0"/>
         <CdTb mn="1" nm="sia_notas" oe="0" sch="SIA" zr="1"/>
