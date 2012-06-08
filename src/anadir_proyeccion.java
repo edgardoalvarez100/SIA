@@ -74,7 +74,7 @@ public class anadir_proyeccion extends javax.swing.JFrame {
             {
               total1=con.getInt(1);
             }
-            Object [][] data = new Object[total1+1][4];
+            Object [][] data = new Object[total1][4];
 
             con=DataBaseOracle.Query(SQL);
             j=0;
@@ -326,6 +326,11 @@ public class anadir_proyeccion extends javax.swing.JFrame {
         });
 
         jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         bt_buscar_est.setText("...");
         bt_buscar_est.addActionListener(new java.awt.event.ActionListener() {
@@ -472,10 +477,10 @@ private void txt_buscar_estActionPerformed(java.awt.event.ActionEvent evt) {//GE
 
 private void txt_buscar_estKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscar_estKeyPressed
  String sql;
-        if(!txt_buscar.getText().equals("")){
-            sql="SELECT * FROM sia_estudiantes WHERE est_nombres LIKE '"+txt_buscar.getText()+"%' AND est_estado=1";
+        if(!txt_buscar_est.getText().equals("")){
+            sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_nombres LIKE '"+txt_buscar_est.getText().toUpperCase()+"%' AND est_estado=1";
         } else
-            sql="SELECT * FROM sia_estudiantes WHERE est_estado=1";
+            sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_estado=1";
         buscarDatosEstudiantes(sql);
 }//GEN-LAST:event_txt_buscar_estKeyPressed
 
@@ -484,6 +489,10 @@ fr_estudiantes.setLocationRelativeTo(null);
   fr_estudiantes.setSize(495, 300);
   fr_estudiantes.setVisible(true);
 }//GEN-LAST:event_bt_buscar_estActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+this.hide();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
