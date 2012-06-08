@@ -423,7 +423,7 @@ private void txt_buscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
        
         String sql;
         if(!txt_buscar.getText().equals("")){
-            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_nombre LIKE '"+txt_buscar.getText().toUpperCase()+"%' AND asi_estado=1";
+            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_nombre LIKE '"+txt_buscar.getText()+"%' AND asi_estado=1";
         } else
             sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_estado=1";
         buscarDatosAsignatura(sql);
@@ -435,7 +435,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
   fr_asignatura.setVisible(true);
   String sql;
         if(!txt_buscar.getText().equals("")){
-            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_nombre LIKE '"+txt_buscar.getText().toUpperCase()+"%' AND asi_estado=1";
+            sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_nombre LIKE '"+txt_buscar.getText()+"%' AND asi_estado=1";
         } else
             sql="SELECT asi_codigo,  UPPER(asi_nombre) FROM sia_asignaturas WHERE asi_estado=1";
         buscarDatosAsignatura(sql);
@@ -478,7 +478,7 @@ private void txt_buscar_estActionPerformed(java.awt.event.ActionEvent evt) {//GE
 private void txt_buscar_estKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscar_estKeyPressed
  String sql;
         if(!txt_buscar_est.getText().equals("")){
-            sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_nombres LIKE '%"+txt_buscar_est.getText().toUpperCase()+"%' AND est_estado=1";
+            sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_nombres LIKE '%"+txt_buscar_est.getText()+"%' AND est_estado=1";
         } else
             sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_estado=1";
         buscarDatosEstudiantes(sql);
