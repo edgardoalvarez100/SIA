@@ -33,20 +33,29 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_2ActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CUANTAS ASIGNATURAS TIPO A HAY Y CUAL ES LA SUMA DE SUS CR&#xc9;DITOS"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_3ActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CUANTAS ASIGNATURAS TIPO B HAY Y CUAL ES LA SUMA DE SUS CR&#xc9;DITOS"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_4ActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CUANTOS ESTUDIANTES OBTUVIERON PROMEDIO PONDERADO INFERIOR A 2.0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_5ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -55,27 +64,39 @@
             <Property name="text" type="java.lang.String" value="Reportes B"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CUANTOS ESTUDIANTES OBTUVIERON PROMEDIO PONDERADO ENTRE 2.0 Y MENOR A 3.0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_6ActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CUANTOS ESTUDIANTES OBTUVIERON PROMEDIO PONDERADO ENTRE 3.0 Y MENOR A 4.0."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_7ActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_8">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CUANTOS ESTUDIANTES OBTUVIERON PROMEDIO PONDERADO ENTRE 4.0 Y 5.0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_8ActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CU&#xc0;L ES EL NOMBRE DEL ESTUDIANTE QUE OBTUVO EL MEJOR PROMEDIO PONDERADO DEL CURSO Y CU&#xc1;L FUE ESE PROMEDIO"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_9ActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_10">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jMenuItem8"/>
               </Properties>

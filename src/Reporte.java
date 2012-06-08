@@ -24,7 +24,7 @@ public static String Titulo,SQL,Logo,Archivo;
                        String enc= " <CENTER>\n <TABLE WIDHT='900'\n>"+
                                   "     <TR>\n" +
                                   "         <TH WIDTH='123'><IMG SRC='" + Logo + "' ></TH>\n" +
-                                  "         <TH WIDTH='722' ><FONT SIZE='18'><CENTER>"+Titulo+"</CENTER></FONT></TH>\n"+
+                                  "         <TH WIDTH='722' ><FONT SIZE='14'><CENTER>"+Titulo+"</CENTER></FONT></TH>\n"+
                                   "     </TR>\n"+
                                    " </TABLE>\n </CENTER>\n"+
                                  "<HR><BR><CENTER><TABLE BORDER='1'>\n" +
