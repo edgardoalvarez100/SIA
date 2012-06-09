@@ -55,12 +55,3 @@ AND e.est_estado = 1
 GROUP BY e.EST_CODIGO, e.EST_NOMBRES, e.EST_APELLIDOS
 ORDER BY e.EST_CODIGO;
 
-
-SELECT count(*) 
-FROM SIA_NOTAS n 
-           INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO 
-           INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO 
-           INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO 
-           WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) < 2 AND e.est_estado = 1 
-           GROUP BY e.EST_CODIGO
-            ORDER BY e.EST_CODIGO

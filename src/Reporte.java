@@ -49,7 +49,7 @@ public static String Titulo,SQL,Logo,Archivo;
 
 
                                 file.write("\n</TABLE></CENTER>\n" +
-                                        "<BR><CENTER><INPUT TYPE='BUTTON' VALUE='Imprimir' onClick='window.print();'></CENTER>\n"+
+                                        "<BR><CENTER><INPUT TYPE='BUTTON' VALUE='Imprimir' onClick='window.print();'></CENTER>\n <BR /><BR /> <CENTER>Powered by SIA®2012</CENTER>\n"+
                                         "</BODY>\n" +
                                         "</HTML>");
                                 //Para limpiar el buffer
