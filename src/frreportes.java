@@ -42,13 +42,13 @@ public class frreportes extends javax.swing.JFrame {
         bt_7 = new javax.swing.JMenuItem();
         bt_8 = new javax.swing.JMenuItem();
         bt_9 = new javax.swing.JMenuItem();
-        bt_10 = new javax.swing.JMenuItem();
+        bt_peorp = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        bt_10 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        bt_11 = new javax.swing.JMenuItem();
 
         setTitle("Modulo Reportes");
 
@@ -133,7 +133,7 @@ public class frreportes extends javax.swing.JFrame {
         });
         jMenu3.add(bt_8);
 
-        bt_9.setText("CUÀL ES EL NOMBRE DEL ESTUDIANTE QUE OBTUVO EL MEJOR PROMEDIO PONDERADO DEL CURSO Y CUÁL FUE ESE PROMEDIO");
+        bt_9.setText("ESTUDIANTE QUE OBTUVO EL MEJOR PROMEDIO PONDERADO DEL CURSO Y CUÁL FUE ESE PROMEDIO");
         bt_9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_9ActionPerformed(evt);
@@ -141,12 +141,25 @@ public class frreportes extends javax.swing.JFrame {
         });
         jMenu3.add(bt_9);
 
-        bt_10.setText("jMenuItem8");
-        jMenu3.add(bt_10);
+        bt_peorp.setText("ESTUDIANTE QUE OBTUVO EL PEOR PROMEDIO PONDERADO DEL Y CUÀL FUE ESE PROMEDIO");
+        bt_peorp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_peorpActionPerformed(evt);
+            }
+        });
+        jMenu3.add(bt_peorp);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Reportes C");
+
+        bt_10.setText("CUAL ES EL PROMEDIO DE LOS PROMEDIOS PONDERADOS");
+        bt_10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_10ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(bt_10);
 
         jMenuItem9.setText("jMenuItem9");
         jMenu4.add(jMenuItem9);
@@ -157,11 +170,8 @@ public class frreportes extends javax.swing.JFrame {
         jMenuItem11.setText("jMenuItem11");
         jMenu4.add(jMenuItem11);
 
-        jMenuItem12.setText("jMenuItem12");
-        jMenu4.add(jMenuItem12);
-
-        jMenuItem13.setText("CUAL ES LA ASIGNATURA CON MAYOR CANTIDAD DE CREDITOS");
-        jMenu4.add(jMenuItem13);
+        bt_11.setText("CUAL ES LA ASIGNATURA CON MAYOR CANTIDAD DE CREDITOS");
+        jMenu4.add(bt_11);
 
         jMenuBar1.add(jMenu4);
 
@@ -192,12 +202,12 @@ public class frreportes extends javax.swing.JFrame {
         
         
         Reporte.Archivo="Estudiantes_aprobados.html";
-        Reporte.SQL="SELECT e.EST_COD_MATRICULA, UPPER(e.EST_NOMBRES), UPPER(e.EST_APELLIDOS), fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo) "
+        Reporte.SQL="SELECT e.EST_COD_MATRICULA, UPPER(e.EST_NOMBRES), UPPER(e.EST_APELLIDOS), ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) "
                 + "FROM SIA_NOTAS n "
                 + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
                 + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
                 + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
-                + "WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) >= 3 AND e.est_estado <> 0 "
+                + "WHERE ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) >= 3 AND e.est_estado = 0 "
                 + "GROUP BY e.EST_CODIGO, e.EST_COD_MATRICULA, e.EST_NOMBRES, e.EST_APELLIDOS "
                 + "ORDER BY e.EST_CODIGO"; 
         Reporte.Logo="images/logo.png";
@@ -217,12 +227,12 @@ public class frreportes extends javax.swing.JFrame {
         
         
         Reporte.Archivo="Estudiantes_reprobados.html";
-        Reporte.SQL="SELECT e.EST_COD_MATRICULA, UPPER(e.EST_NOMBRES), UPPER(e.EST_APELLIDOS), fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo) "
+        Reporte.SQL="SELECT e.EST_COD_MATRICULA, UPPER(e.EST_NOMBRES), UPPER(e.EST_APELLIDOS), ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) "
                 + "FROM SIA_NOTAS n "
                 + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
                 + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
                 + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
-                + "WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) < 3 AND e.est_estado = 1 "
+                + "WHERE ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) < 3 AND e.est_estado = 1 "
                 + "GROUP BY e.EST_CODIGO, e.EST_COD_MATRICULA, e.EST_NOMBRES, e.EST_APELLIDOS "
                 + "ORDER BY e.EST_CODIGO"; 
         Reporte.Logo="images/logo.png";
@@ -267,9 +277,9 @@ public class frreportes extends javax.swing.JFrame {
                 + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
                 + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
                 + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
-                + "WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) < 2 AND e.est_estado = 1 "
-                + "GROUP BY e.EST_CODIGO, e.EST_COD_MATRICULA, e.EST_NOMBRES, e.EST_APELLIDOS "
-                + "ORDER BY e.EST_CODIGO";
+                + "WHERE ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) < 2 AND e.est_estado = 1 ";
+                
+                
         Reporte.Logo="images/logo.png";
         Reporte.ncol=1;
         String V[]={"CANTIDAD"};
@@ -285,7 +295,7 @@ public class frreportes extends javax.swing.JFrame {
                 + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
                 + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
                 + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
-                + "WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) "
+                + "WHERE ROUND((fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) "
                 + "BETWEEN 2 AND 2.9 AND e.est_estado=1 "
                 + "GROUP BY e.EST_CODIGO, e.EST_COD_MATRICULA, e.EST_NOMBRES, e.EST_APELLIDOS "
                 + "ORDER BY e.EST_CODIGO";
@@ -303,7 +313,7 @@ public class frreportes extends javax.swing.JFrame {
                 + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
                 + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
                 + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
-                + "WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) "
+                + "WHERE ROUND((fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) "
                 + "BETWEEN 3 AND 3.9 AND e.est_estado=1 "
                 + "GROUP BY e.EST_CODIGO, e.EST_COD_MATRICULA, e.EST_NOMBRES, e.EST_APELLIDOS "
                 + "ORDER BY e.EST_CODIGO";
@@ -321,7 +331,7 @@ public class frreportes extends javax.swing.JFrame {
                 + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
                 + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
                 + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
-                + "WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) >= 4 "
+                + "WHERE ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) >= 4 "
                 + "AND e.est_estado=1 "
                 + "GROUP BY e.EST_CODIGO, e.EST_COD_MATRICULA, e.EST_NOMBRES, e.EST_APELLIDOS "
                 + "ORDER BY e.EST_CODIGO";
@@ -336,20 +346,66 @@ public class frreportes extends javax.swing.JFrame {
        //TODO Falta terminar esta consulta
         
         Reporte.Archivo="Estudiante_mejorPP.html";
-        Reporte.SQL="SELECT e.EST_COD_MATRICULA, UPPER(e.EST_NOMBRES), UPPER(e.EST_APELLIDOS), fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo) "
+        Reporte.SQL="SELECT UPPER(e.EST_NOMBRES), UPPER(e.EST_APELLIDOS), ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),2) "
                 + "FROM SIA_NOTAS n "
                 + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
                 + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
                 + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
-                + "WHERE (fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo)) >= 3 AND e.est_estado <> 0 "
+                + "WHERE ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) = (SELECT MAX(ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1)) "
+                + "FROM SIA_NOTAS n "
+                + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
+                + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
+                + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
+                + "WHERE e.est_estado = 1) "
+                + "AND e.est_estado = 1 "
+                + "GROUP BY e.EST_CODIGO, e.EST_NOMBRES, e.EST_APELLIDOS "
+                + "ORDER BY e.EST_CODIGO"; 
+        Reporte.Logo="images/logo.png";
+        Reporte.ncol=3;
+        String V[]={"NOMBRES", "APELLIDOS","P. PONDERADO"};
+        Reporte.Titulo="Estudiantes Mejor Ponderado";
+        Reporte.ReportHTML(V);
+    }//GEN-LAST:event_bt_9ActionPerformed
+
+    private void bt_peorpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_peorpActionPerformed
+      Reporte.Archivo="Estudiante_peorPP.html";
+        Reporte.SQL="SELECT UPPER(e.EST_NOMBRES), UPPER(e.EST_APELLIDOS), ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),2) "
+                + "FROM SIA_NOTAS n "
+                + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
+                + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
+                + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
+                + "WHERE ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1) = (SELECT MIN(ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1)) "
+                + "FROM SIA_NOTAS n "
+                + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
+                + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
+                + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
+                + "WHERE e.est_estado = 1) "
+                + "AND e.est_estado = 1 "
+                + "GROUP BY e.EST_CODIGO, e.EST_NOMBRES, e.EST_APELLIDOS "
+                + "ORDER BY e.EST_CODIGO"; 
+        Reporte.Logo="images/logo.png";
+        Reporte.ncol=3;
+        String V[]={"NOMBRES", "APELLIDOS","P. PONDERADO"};
+        Reporte.Titulo="Estudiantes Peor Ponderado";
+        Reporte.ReportHTML(V);
+    }//GEN-LAST:event_bt_peorpActionPerformed
+
+    private void bt_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_10ActionPerformed
+        Reporte.Archivo="Promedio_ponderado.html";
+        Reporte.SQL="SELECT AVG(ROUND(fn_multiplicacion(e.est_codigo)/fn_suma_creditos(e.est_codigo),1)) "
+                + "FROM SIA_NOTAS n "
+                + "INNER JOIN SIA_PROYECCIONES p ON n.PRO_CODIGO=p.PRO_CODIGO "
+                + "INNER JOIN SIA_ASIGNATURAS a ON p.ASI_CODIGO=a.ASI_CODIGO "
+                + "INNER JOIN SIA_ESTUDIANTES e ON e.EST_CODIGO=p.EST_CODIGO "
+                + "WHERE e.est_estado = 0 "
                 + "GROUP BY e.EST_CODIGO, e.EST_COD_MATRICULA, e.EST_NOMBRES, e.EST_APELLIDOS "
                 + "ORDER BY e.EST_CODIGO"; 
         Reporte.Logo="images/logo.png";
-        Reporte.ncol=4;
-        String V[]={"CODIGO","NOMBRES", "APELLIDOS","P. PONDERADO"};
-        Reporte.Titulo="Estudiantes Aprobados";
+        Reporte.ncol=1;
+        String V[]={"P. PONDERADO"};
+        Reporte.Titulo="Promedio Ponderado";
         Reporte.ReportHTML(V);
-    }//GEN-LAST:event_bt_9ActionPerformed
+    }//GEN-LAST:event_bt_10ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,6 +445,7 @@ public class frreportes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem bt_1;
     private javax.swing.JMenuItem bt_10;
+    private javax.swing.JMenuItem bt_11;
     private javax.swing.JMenuItem bt_2;
     private javax.swing.JMenuItem bt_3;
     private javax.swing.JMenuItem bt_4;
@@ -397,6 +454,7 @@ public class frreportes extends javax.swing.JFrame {
     private javax.swing.JMenuItem bt_7;
     private javax.swing.JMenuItem bt_8;
     private javax.swing.JMenuItem bt_9;
+    private javax.swing.JMenuItem bt_peorp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -405,8 +463,6 @@ public class frreportes extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

@@ -438,7 +438,7 @@ private void bt_codigo_asignaturaActionPerformed(java.awt.event.ActionEvent evt)
   fr_asignatura.setLocationRelativeTo(null);
   fr_asignatura.setSize(500, 301);
   fr_asignatura.setVisible(true);
-  String  sql="SELECT p.pro_codigo, a.asi_codigo, a.asi_nombre, n.not_1_corte, n.not_2_corte, n.not_3_corte, n.not_codigo "+
+  String  sql="SELECT p.pro_codigo, a.asi_codigo, a.asi_nombre,  NVL(n.not_1_corte,0), NVL(n.not_2_corte,0), NVL(n.not_3_corte,0), n.not_codigo "+
                 "FROM sia_asignaturas a INNER JOIN sia_proyecciones p ON a.asi_codigo=p.asi_codigo "+
                 "INNER JOIN sia_estudiantes e ON p.est_codigo=e.est_codigo "+
                 "INNER JOIN sia_notas n ON n.pro_codigo=p.pro_codigo "+
@@ -487,7 +487,7 @@ private void txt_buscar_estActionPerformed(java.awt.event.ActionEvent evt) {//GE
 private void txt_buscar_estKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscar_estKeyPressed
  String sql;
         if(!txt_buscar_est.getText().equals("")){
-            sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_nombres LIKE '"+txt_buscar_est.getText().toUpperCase()+"%' AND est_estado=1";
+            sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_nombres LIKE '%"+txt_buscar_est.getText()+"%' AND est_estado=1";
         } else
             sql="SELECT est_cod_matricula, UPPER(est_nombres), UPPER(est_apellidos) FROM sia_estudiantes WHERE est_estado=1";
         buscarDatosEstudiantes(sql);
@@ -500,7 +500,7 @@ this.hide();
 private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
 
      try{
-       nota_definitiva = Integer.parseInt(txt_1corte.getText())*0.3 + Integer.parseInt(txt_2corte.getText())*0.3 + Integer.parseInt(txt_3corte.getText())*0.4;
+       nota_definitiva = Double.valueOf(txt_1corte.getText())*0.3 + Double.valueOf(txt_2corte.getText())*0.3 + Double.valueOf(txt_3corte.getText())*0.4;
          
         String sql ="UPDATE sia_notas SET not_1_corte="+ Double.parseDouble(txt_1corte.getText())+", not_2_corte="+Double.parseDouble(txt_2corte.getText())+", not_3_corte="+Double.parseDouble(txt_3corte.getText())+ ", not_definitiva="+ nota_definitiva +
                     " WHERE  sia_notas.not_codigo="+cod_nota;

@@ -90,16 +90,19 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="bt_9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CU&#xc0;L ES EL NOMBRE DEL ESTUDIANTE QUE OBTUVO EL MEJOR PROMEDIO PONDERADO DEL CURSO Y CU&#xc1;L FUE ESE PROMEDIO"/>
+                <Property name="text" type="java.lang.String" value="ESTUDIANTE QUE OBTUVO EL MEJOR PROMEDIO PONDERADO DEL CURSO Y CU&#xc1;L FUE ESE PROMEDIO"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_9ActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="bt_10">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_peorp">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem8"/>
+                <Property name="text" type="java.lang.String" value="ESTUDIANTE QUE OBTUVO EL PEOR PROMEDIO PONDERADO DEL Y CU&#xc0;L FUE ESE PROMEDIO"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_peorpActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -108,6 +111,14 @@
             <Property name="text" type="java.lang.String" value="Reportes C"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="bt_10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CUAL ES EL PROMEDIO DE LOS PROMEDIOS PONDERADOS"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_10ActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jMenuItem9"/>
@@ -123,12 +134,7 @@
                 <Property name="text" type="java.lang.String" value="jMenuItem11"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem12"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
+            <MenuItem class="javax.swing.JMenuItem" name="bt_11">
               <Properties>
                 <Property name="text" type="java.lang.String" value="CUAL ES LA ASIGNATURA CON MAYOR CANTIDAD DE CREDITOS"/>
               </Properties>
