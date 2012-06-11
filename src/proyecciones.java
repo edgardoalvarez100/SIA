@@ -10,7 +10,7 @@ public class proyecciones extends javax.swing.JFrame {
     }
 
     public void buscarDatosProyecciones(String SQL)    {
-       String titulos[]={"Codigo","Asignatura ","Creditos"};
+       String titulos[]={"Codigo","Asignatura ","Creditos", "Nota Definitiva"};
 
         int j,total1=0;
         ResultSet con;
@@ -31,8 +31,9 @@ public class proyecciones extends javax.swing.JFrame {
                 data[j][0]=con.getString("asi_codigo");//codigo
                 data[j][1]=con.getString(2);//Nombre
                 data[j][2]=con.getString(3);//Apellidos
-                txt_nombre.setText(con.getString(4));
-                txt_apellidos.setText(con.getString(5));
+                data[j][3]=con.getString(4);//Nota Definitiva
+                txt_nombre.setText(con.getString(5));
+                txt_apellidos.setText(con.getString(6));
 
                 j++;
             }//end while
@@ -71,17 +72,17 @@ public class proyecciones extends javax.swing.JFrame {
 
         tabla_proyeccion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Codigo Asignatura", "Nombre", "Creditos"
+                "Codigo Asignatura", "Nombre", "Creditos", "Nota Definitiva"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -112,6 +113,11 @@ public class proyecciones extends javax.swing.JFrame {
         jMenu1.setText("Archivo");
 
         jMenuItem1.setText("Salir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
@@ -198,10 +204,11 @@ private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 private void bt_buscar_proyeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_buscar_proyeccionActionPerformed
         String sql;
         if(!txt_codigo.getText().equals("")){
-            sql="SELECT a.asi_codigo, a.asi_nombre, a.asi_creditos, e.est_nombres, e.est_apellidos "+
+            sql="SELECT a.asi_codigo, a.asi_nombre, a.asi_creditos, NVL(n.not_definitiva, 0), e.est_nombres, e.est_apellidos "+
                 "FROM sia_asignaturas a "
               + "INNER JOIN sia_proyecciones p ON a.asi_codigo=p.asi_codigo "+
-                "INNER JOIN sia_estudiantes e ON p.est_codigo=e.est_codigo "+
+                "INNER JOIN sia_estudiantes e ON p.est_codigo=e.est_codigo "
+              + "INNER JOIN sia_notas n ON p.pro_codigo=n.pro_codigo "+
                 "WHERE e.est_cod_matricula="+txt_codigo.getText()+""
              + " AND a.asi_estado=1 AND p.pro_estado=1 AND e.est_estado=1";
             buscarDatosProyecciones(sql);
@@ -215,6 +222,11 @@ private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
      g.setLocationRelativeTo(null);
      g.setVisible(true);
 }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    // TODO add your handling code here:
+    this.hide();
+}//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
